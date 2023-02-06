@@ -52,7 +52,8 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $employee = Employee::findOrFail($id)->update($request->all());
+        return response->json($employee);
     }
 
     /**
